@@ -1,0 +1,47 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: alpo
+ * Date: 26.04.17
+ * Time: 17:16
+ */
+
+
+
+class M_Figure
+{
+    protected $position;
+    protected $width;
+    protected $height;
+    protected $border;
+    protected $color;
+    protected $posX;
+
+    public function __construct($w, $h, $bd, $col, $pX = 0, $pY = 0)
+    {
+        $this->position = 'relative';
+        $this->width = $w.'px';
+        $this->height = $h.'px';
+        $this->border = (!!$bd) ? $bd : 'none';
+        $this->color = $col;
+        $this->posX = $pX.'px';
+        $this->posY = $pY.'px';
+    }
+
+    /**
+     * @param string $class
+     * @return array
+     */
+    public function generateTag ($class)
+    {
+        $style = "
+        position: $this->position;
+        width: $this->width;
+        height: $this->height;
+        border: $this->border;
+        background-color: $this->color;
+        ";
+        
+        return array('class' => $class, 'style' => $style);
+    }
+}
