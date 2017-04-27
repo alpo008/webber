@@ -45,7 +45,13 @@ class M_Params
         $color = '#' . sprintf("%06s", $color);
         $posx = rand ($radius, (BG_SIDE - $radius));
         $posy = rand ($radius, (BG_SIDE - $radius));
-        $circle = new M_Circle($radius, $color,$posx,$posy);
+        $params = compact ('radius', 'color', 'posx', 'posy');
+        return $params;
+    }
+    
+    public function randomCircle(){
+        $params = $this->randomParams();
+        $circle = new M_Circle($params['radius'], $params['color'],$params['posx'],$params['posy']);
         $dataString = $circle->generateCircle('circle');
         return $dataString;
     }
