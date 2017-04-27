@@ -49,8 +49,8 @@ class M_Params
         return $params;
     }
     
-    public function randomCircle(){
-        $params = $this->randomParams();
+    public function randomCircle($p = NULL){
+        $params = ($p === NULL) ? $this->randomParams() : $p;
         $circle = new M_Circle($params['radius'], $params['color'],$params['posx'],$params['posy']);
         $dataString = $circle->generateCircle('circle');
         return $dataString;
