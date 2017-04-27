@@ -54,7 +54,14 @@
                 action: action
             },
             success: function(data){
-            console.log(data);
+                if (data == 0) {
+                    alert('Пересечений нет.');
+                }else{
+                    var message = 'Пересечения у ' + data + ' кругов. Очичтить поле?';
+                    if (confirm(message)){
+                        $('.button_reset').click();
+                    }
+                }
             }
         });
         event.preventDefault();
