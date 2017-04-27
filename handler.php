@@ -18,5 +18,8 @@ if (!!$user_id && !! $action){
             $result = M_PDO::Instance()->Delete('circles', $where);
             echo (preg_match("/[0-9]+/", $result)) ? 'deleted' : $result;
             break;
+        case 'check':
+            echo M_Params::Instance()->countTouchings($user_id);
+            break;
     }
 }

@@ -37,7 +37,10 @@ class M_Params
         }
         return $dataStrings;
     }
-    
+
+    /**
+     * @return array
+     */
     public function randomParams () 
     {
         $radius = rand(RADIUS_MIN, RADIUS_MAX);
@@ -48,11 +51,56 @@ class M_Params
         $params = compact ('radius', 'color', 'posx', 'posy');
         return $params;
     }
-    
+
+    /**
+     * @param null|array $p
+     * @return array
+     */
     public function randomCircle($p = NULL){
         $params = ($p === NULL) ? $this->randomParams() : $p;
         $circle = new M_Circle($params['radius'], $params['color'],$params['posx'],$params['posy']);
         $dataString = $circle->generateCircle('circle');
         return $dataString;
+    }
+
+    /**
+     * @param int $uid
+     * @return int
+     */
+    public function countTouchings ($uid){
+        $elements = $this->getFigures($uid);
+        $touchings = array();
+        for ($i = 0; $i < count($elements); $i++){
+            $element1 = $elements[$i];
+            foreach ($elements as $k => $element){
+                if ($k != $i){
+                    $element2 = $element;
+                    if ($this->checkTouching($element1, $element2)){
+                        $touchings[] = $i;
+                        $touchings[] = $k;
+                    }
+                }
+            }
+        }
+
+
+
+        return count (array_unique($touchings));
+    }
+
+    /**
+     * @param array $element1
+     * @param array $element2
+     * @return bool
+     */
+    private function checkTouching ($element1, $element2){
+        $x1 = $element1['posx'];
+        $y1 = $element1['posy'];
+        $r1 = $element1['radius'];
+        $x2 = $element2['posx'];
+        $y2 = $element2['posy'];
+        $r2 = $element2['radius'];
+        $distance = sqrt (pow(($x1 - $x2), 2) + pow(($y1 - $y2), 2));
+        return ($distance <= ($r1 + $r2));
     }
 }

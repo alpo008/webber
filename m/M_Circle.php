@@ -28,8 +28,6 @@ class M_Circle extends M_Figure
         top: $this->posY;
         left: $this->posX;
         ";
-
-
         $tag['style'] .= $style;
 
         return $tag;

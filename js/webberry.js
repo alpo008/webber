@@ -40,6 +40,25 @@
         });
         event.preventDefault();
         event.stopPropagation();
+    });    
+    
+    $(document).on('click', '.button_check', function(event){
+        var userId = parseInt(this.id);
+        var action = 'check';
+        $.ajax({
+            url: 'handler.php',
+            dataType: 'html',
+            type: 'POST',
+            data: {
+                uid: userId,
+                action: action
+            },
+            success: function(data){
+            console.log(data);
+            }
+        });
+        event.preventDefault();
+        event.stopPropagation();
     });
 
 })(jQuery);
