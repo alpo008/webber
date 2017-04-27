@@ -1,8 +1,6 @@
 <?php
 
-//
-// Менеджер пользователей
-//
+
 class M_Users
 {	
 	private static $instance;	
@@ -48,5 +46,4 @@ class M_Users
 		$result = $this->mpdo->Select($query);
 		return (isset ($result[0])) ? $result[0] : NULL;
 	}
-
 }

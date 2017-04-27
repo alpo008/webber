@@ -19,6 +19,10 @@ class M_Params
         $this->mpdo = M_PDO::Instance();
     }
 
+    /**
+     * @param int $uid
+     * @return array
+     */
     private function getFigures($uid)
     {
         $t = "SELECT radius, color, posx, posy FROM circles WHERE user_id = '%s'";
@@ -27,6 +31,10 @@ class M_Params
         return $result;
     }
 
+    /**
+     * @param int $uid
+     * @return array
+     */
     public function getMap($uid)
     {
         $map = $this->getFigures($uid);
@@ -82,9 +90,6 @@ class M_Params
                 }
             }
         }
-
-
-
         return count (array_unique($touchings));
     }
 

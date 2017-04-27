@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: alpo
- * Date: 26.04.17
- * Time: 18:54
- */
 class M_Circle extends M_Figure
 {
     protected $bdrs;

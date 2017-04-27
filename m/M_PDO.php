@@ -18,7 +18,11 @@ class M_PDO{
 		$this->db->exec('SET NAMES UTF8');
 		$this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 	}
-	
+
+	/**
+	 * @param string $query
+	 * @return array
+	 */
 	public function Select($query){
 		$q = $this->db->prepare($query);
 		$q->execute();
@@ -31,7 +35,11 @@ class M_PDO{
 		return $q->fetchAll();					
 	}
 
-	
+	/**
+	 * @param string $table
+	 * @param array $object
+	 * @return mixed
+	 */
 	public function Insert($table , $object){
 		$columns = array();
 		
@@ -60,7 +68,13 @@ class M_PDO{
 		
 		return $this->db->lastInsertId();		
 	}
-	
+
+	/**
+	 * @param string $table
+	 * @param array $object
+	 * @param string $where
+	 * @return mixed
+	 */
 	public function Update($table,$object,$where){
 		$sets = array();
 		 
@@ -83,11 +97,14 @@ class M_PDO{
 			$info = $q->errorInfo();
 			die($info[2]);
 		}
-		
 		return $q->rowCount();
 	}
-	
-	
+
+	/**
+	 * @param string $table
+	 * @param string $where
+	 * @return mixed
+	 */
 	public function Delete($table, $where){
 		$query = "DELETE FROM $table WHERE $where";
 		$q = $this->db->prepare($query);
