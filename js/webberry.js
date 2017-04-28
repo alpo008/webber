@@ -12,7 +12,7 @@
                 action: action
             },
             success: function(data){
-                $(data).appendTo( '#playfield' );
+                $(data).appendTo($('.content-images'));
             }
         });
         event.preventDefault();

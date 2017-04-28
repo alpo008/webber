@@ -16,6 +16,8 @@ class M_Figure
     protected $border;
     protected $color;
     protected $posX;
+    protected $bdrs;
+
 
     public function __construct($w, $h, $bd, $col, $pX = 0, $pY = 0)
     {
@@ -26,13 +28,14 @@ class M_Figure
         $this->color = $col;
         $this->posX = $pX.'px';
         $this->posY = $pY.'px';
+        $this->bdrs = '0%';
     }
 
     /**
      * @param string $class
      * @return array
      */
-    public function generateTag ($class)
+    public function generateTag ($class, $innerHtml=NULL)
     {
         $style = "
         position: $this->position;
@@ -40,8 +43,15 @@ class M_Figure
         height: $this->height;
         border: $this->border;
         background-color: $this->color;
+        border-radius: $this->bdrs;
+        top: $this->posY;
+        left: $this->posX;
         ";
-        
-        return array('class' => $class, 'style' => $style);
+        $str = '<div class="' . $class .'" style ="' . $style . '">';
+        if (!!$innerHtml){
+                $str .= implode('', $innerHtml);
+        }
+        $str .= '</div>';
+        return $str;
     }
 }

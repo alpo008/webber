@@ -41,7 +41,7 @@ class M_Params
         $dataStrings = array();
         foreach ($map as $item){
             $circle = new M_Circle($item['radius'], $item['color'],$item['posx'],$item['posy']);
-            $dataStrings[] = $circle->generateCircle('circle');
+            $dataStrings[] = $circle->generateCircle();
         }
         return $dataStrings;
     }
@@ -67,7 +67,7 @@ class M_Params
     public function randomCircle($p = NULL){
         $params = ($p === NULL) ? $this->randomParams() : $p;
         $circle = new M_Circle($params['radius'], $params['color'],$params['posx'],$params['posy']);
-        $dataString = $circle->generateCircle('circle');
+        $dataString = $circle->generateCircle();
         return $dataString;
     }
 

@@ -2,7 +2,6 @@
 
 class M_Circle extends M_Figure
 {
-    protected $bdrs;
     public function __construct($rad, $col, $pX, $pY)
     {
         $w = $h = 2 * $rad;
@@ -15,15 +14,8 @@ class M_Circle extends M_Figure
         $this->bdrs = '50%';
     }
 
-    public function generateCircle($class){
-        $tag = $this->generateTag($class);
-        $style = "
-        border-radius: $this->bdrs;
-        top: $this->posY;
-        left: $this->posX;
-        ";
-        $tag['style'] .= $style;
-
+    public function generateCircle(){
+        $tag = $this->generateTag('circle');
         return $tag;
     }
 }
