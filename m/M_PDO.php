@@ -1,6 +1,7 @@
 <?php
 
-class M_PDO{
+class M_PDO
+{
 	private static $instance;
 	private $db;
 	
@@ -31,14 +32,13 @@ class M_PDO{
 			$info = $q->errorInfo();
 			die($info[2]);
 		}
-			
-		return $q->fetchAll();					
+		return $q->fetchAll();
 	}
 
 	/**
 	 * @param string $table
 	 * @param array $object
-	 * @return mixed
+	 * @return int
 	 */
 	public function Insert($table , $object){
 		$columns = array();
