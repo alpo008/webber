@@ -1,6 +1,7 @@
 {
     "require": {
         "components/jquery": "^3.2",
-      "ext-pdo": "*"
+      "ext-pdo": "*",
+      "ext-json": "*"
     }
 }

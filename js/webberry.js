@@ -1,18 +1,19 @@
 (function($){
-
     $(document).on('click', '.button_new', function(event){
         var userId = parseInt(this.id);
         var action = 'insert';
         $.ajax({
-            url: 'handler.php',
-            dataType: 'html',
+            url: 'handler/create',
+            dataType: 'JSON',
             type: 'POST',
             data: {
                 uid: userId,
                 action: action
             },
             success: function(data){
-                $(data).appendTo($('.content-images'));
+                if (data.code === 200 && !!data.html.length) {
+                    $(data.html).appendTo($('.content-images'));
+                }
             }
         });
         event.preventDefault();
@@ -23,18 +24,20 @@
         var userId = parseInt(this.id);
         var action = 'delete';
         $.ajax({
-            url: 'handler.php',
-            dataType: 'html',
+            url: 'handler/delete',
+            dataType: 'JSON',
             type: 'POST',
             data: {
                 uid: userId,
                 action: action
             },
             success: function(data){
-                if (data === 'deleted'){
+                console.log(data);
+                console.log(data.message);
+                if (data.code === 200){
                     $('.circle').remove();
                 }else{
-                    alert(data);
+                    alert(data.message);
                 }
             }
         });
@@ -46,26 +49,29 @@
         var userId = parseInt(this.id);
         var action = 'check';
         $.ajax({
-            url: 'handler.php',
-            dataType: 'html',
+            url: 'handler/count',
+            dataType: 'JSON',
             type: 'POST',
             data: {
                 uid: userId,
                 action: action
             },
             success: function(data){
-                if (data === '0') {
-                    alert('Пересечений нет.');
-                }else{
-                    var message = 'Пересечения у ' + data + ' кругов. Очичтить поле?';
-                    if (confirm(message)){
-                        $('.button_reset').click();
+                if (typeof data.count !== 'undefined') {
+                    if (data.count === 0) {
+                        alert('Пересечений нет.');
+                    }else{
+                        var message = 'Пересечения у ' + data.count + ' кругов. Очичтить поле?';
+                        if (confirm(message)){
+                            $('.button_reset').click();
+                        }
                     }
+                } else {
+                    alert('Ошибка подсчета.');
                 }
             }
         });
         event.preventDefault();
         event.stopPropagation();
     });
-
 })(jQuery);
