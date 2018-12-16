@@ -1,5 +1,11 @@
 <?php
 
+namespace m;
+
+/**
+ * Модель круга
+ */
+
 class M_Circle extends M_Figure
 {
     public function __construct($rad, $col, $pX, $pY)

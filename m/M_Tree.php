@@ -1,6 +1,6 @@
 <?php
 
-
+namespace m;
 
 class M_Tree extends M_Html
 {

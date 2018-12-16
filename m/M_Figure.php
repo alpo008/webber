@@ -1,12 +1,18 @@
 <?php
+
+namespace m;
+
 /**
- * Created by PhpStorm.
- * User: alpo
- * Date: 26.04.17
- * Time: 17:16
+ * Модель геометрической фигуры
+ * @property string $position
+ * @property string $bdrs
+ * @property double $width
+ * @property double $height
+ * @property string $border
+ * @property string $color
+ * @property double $posX
+ * @property double $posY
  */
-
-
 
 class M_Figure
 {
@@ -16,6 +22,7 @@ class M_Figure
     protected $border;
     protected $color;
     protected $posX;
+    protected $posY;
     protected $bdrs;
 
 
@@ -33,7 +40,7 @@ class M_Figure
 
     /**
      * @param string $class
-     * @return array
+     * @return string
      */
     public function generateTag ($class, $innerHtml=NULL)
     {

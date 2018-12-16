@@ -1,4 +1,8 @@
 <?php
+
+use m\M_Params;
+use m\M_PDO;
+
 require ('config.php');
 $user_id = (isset($_POST['uid'])) ? $_POST['uid'] : NULL;
 $action = (isset($_POST['action'])) ? $_POST['action'] : NULL;

@@ -1,6 +1,11 @@
 <?php
 
+namespace m;
 
+/**
+ * Class M_Users
+ * @property M_PDO $mpdo
+ */
 class M_Users
 {	
 	private static $instance;	

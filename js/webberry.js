@@ -54,7 +54,7 @@
                 action: action
             },
             success: function(data){
-                if (data == 0) {
+                if (data === '0') {
                     alert('Пересечений нет.');
                 }else{
                     var message = 'Пересечения у ' + data + ' кругов. Очичтить поле?';

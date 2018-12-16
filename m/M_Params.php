@@ -1,5 +1,11 @@
 <?php
 
+namespace m;
+
+/**
+ * Модель параметров для сохранения и отображения фигур
+ * @property M_PDO $mpdo
+ */
 
 class M_Params
 {

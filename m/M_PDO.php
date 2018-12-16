@@ -1,5 +1,15 @@
 <?php
 
+namespace m;
+
+use PDO;
+
+
+/**
+ * Модель драйвера БД
+ * @property PDO $db
+ */
+
 class M_PDO
 {
 	private static $instance;
@@ -114,8 +124,6 @@ class M_PDO
 			$info = $q->errorInfo();
 			die($info[2]);
 		}
-		
 		return $q->rowCount();
 	}
 }
-?>
