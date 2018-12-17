@@ -1,20 +1,20 @@
 [
     {
         "name": "components/jquery",
-        "version": "3.2.1",
-        "version_normalized": "3.2.1.0",
+        "version": "3.3.1",
+        "version_normalized": "3.3.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/components/jquery.git",
-            "reference": "e5534d4ab8e80c159553d507e358ed20a806d3bf"
+            "reference": "459648cda77875519c5da3ae1dd0ed5d170aa649"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/components/jquery/zipball/e5534d4ab8e80c159553d507e358ed20a806d3bf",
-            "reference": "e5534d4ab8e80c159553d507e358ed20a806d3bf",
+            "url": "https://api.github.com/repos/components/jquery/zipball/459648cda77875519c5da3ae1dd0ed5d170aa649",
+            "reference": "459648cda77875519c5da3ae1dd0ed5d170aa649",
             "shasum": ""
         },
-        "time": "2017-03-21 07:01:49",
+        "time": "2018-03-04T13:23:48+00:00",
         "type": "component",
         "extra": {
             "component": {
