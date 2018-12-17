@@ -2,7 +2,7 @@
 
 namespace m;
 
-class M_Tree extends M_Html
+class M_Tree
 {
 
     private $idColumnName;
@@ -95,7 +95,7 @@ class M_Tree extends M_Html
 
     public function formList()
     {
-        return $this->makeTag([
+        return M_Html::makeTag([
             'tagname' => 'ul', 
             'inner_html' => $this->composeList(),
             'attributes' => [
